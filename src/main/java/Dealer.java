@@ -1,13 +1,14 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class Dealer {
     private static final int RECIEVE_TIME = 3000;
     private static final int SELL_TIME = 1000;
     private List<Car> cars = new ArrayList<>();
-    private final ReentrantLock lock = new ReentrantLock();
+    private final Lock lock = new ReentrantLock();
     private final Condition condition = lock.newCondition();
 
     public void receiveCar() {
